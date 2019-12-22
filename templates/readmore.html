@@ -1,0 +1,36 @@
+{% extends 'contact.html' %}
+{% block title %}readmore{% endblock %}
+
+{% block header %}
+<section id="cta" class="section"
+         style="background-image:url('../static/images/img4.jpg');background-repeat:no-repeat;background-size:cover">
+    <div class="container">
+        <div class="row">
+            <div class="col-lg-8 col-md-12 align-self-center">
+
+        </div>
+    </div>
+</section>
+{% endblock %}
+
+
+{% block content %}
+ <section class="section lb">
+            <div class="container">
+                <div class="row">
+                    <div class="col-lg-8 col-md-12 col-sm-12 col-xs-12">
+                        <div class="page-wrapper">
+                            <div class="blog-custom-build">
+                                <h2><u><center>{{post.title}}</center></u></h2>
+                                <h3><b>By:- {{post.author}}</b></h3>
+                                <h4><b>Published date :{{post.date}}</b></h4>
+                                {{post.description}}
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+ </section>
+
+
+{% endblock %}

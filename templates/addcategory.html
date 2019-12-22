@@ -1,0 +1,41 @@
+{% extends 'Admintemplate.html' %}
+
+{% block content %}
+<div class="container-fluid">
+  <div class="row content">
+    <div class="col-sm-3 sidenav">
+
+      <ul class="nav nav-pills nav-stacked">
+          <h4><u>DASHBOARD</u></h4>
+          <li class="active"><a href="#section1">Home</a></li>
+          <li><a href="/category">manage category</a></li>
+          <li><a href="/post">manage post</a></li>
+          <li><a href="/logout">Logout</a></li>
+      </ul><br>
+      <div class="input-group">
+            <input type="text" class="form-control" placeholder="Search Blog..">
+            <span class="input-group-btn">
+            <button class="btn btn-default" type="button">
+            <span class="glyphicon glyphicon-search"></span>
+            </button>
+            </span>
+      </div>
+    </div>
+      {{msg|safe}}
+
+    <div class="col-sm-9">
+        <h4>write the name of category you want</h4>
+     <form action="/add-cat" method="post">
+           <div class="form-group">
+                <label for="category">write category</label>
+                <input type="text" class="form-control" id="category" placeholder="Enter title" name="category" required>
+           </div>
+         <button type="submit" class="btn btn-default">add </button>
+     </form>
+
+    </div>
+  </div>
+  </div>
+</div>
+{% endblock %}
+ </div>

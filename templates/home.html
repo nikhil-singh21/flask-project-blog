@@ -1,0 +1,204 @@
+{% extends "Layout.html" %}
+
+{% block title %}Home page {% endblock %}
+{% block navbar %}
+<div id="wrapper">
+    <header class="market-header header">
+        <div class="container-fluid">
+            <nav class="navbar navbar-toggleable-md navbar-inverse fixed-top bg-inverse">
+                <button class="navbar-toggler navbar-toggler-right" type="button" data-toggle="collapse"
+                        data-target="#navbarCollapse" aria-controls="navbarCollapse" aria-expanded="false"
+                        aria-label="Toggle navigation">
+                    <span class="navbar-toggler-icon"></span>
+                </button>
+                <a class="navbar-brand" href="/Home" style="height:70px;"><img
+                        src={{url_for('static',filename="images/version/newlogo.png")}} style="height:50px;" alt=""></a>
+                <div class="collapse navbar-collapse" id="navbarCollapse">
+                    <ul class="navbar-nav mr-auto">
+                        <li class="nav-item">
+                            <a class="nav-link" href="/Home">Home</a>
+                        </li>
+                        <li class="nav-item">
+                            <a class="nav-link" href="/Blog">Blog</a>
+                        </li>
+                        <li class="nav-item">
+                            <a class="nav-link" href="/Contactus">Contact Us</a>
+                        </li>
+                        <li class="nav-item">
+                            <a class="nav-link" href="/Login">Login</a>
+                        </li>
+                    </ul>
+                </div>
+            </nav>
+        </div><!-- end container-fluid -->
+    </header><!-- end market-header -->
+
+    {% endblock %}
+
+
+    {% block header %}
+
+
+    <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.4.1/css/bootstrap.min.css">
+    <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.4.1/jquery.min.js"></script>
+    <script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.4.1/js/bootstrap.min.js"></script>
+
+    <div class="container" style="width:100%">
+        <div id="myCarousel" class="carousel slide" data-ride="carousel">
+            <!-- Indicators -->
+            <ol class="carousel-indicators">
+                <li data-target="#myCarousel" data-slide-to="0" class="active"></li>
+                <li data-target="#myCarousel" data-slide-to="1"></li>
+                <li data-target="#myCarousel" data-slide-to="2"></li>
+            </ol>
+            <!-- Wrapper for slides -->
+            <div class="carousel-inner">
+                <div class="row">
+
+                </div>
+                <div class="item active">
+                    <img src={{url_for('static',filename="images/crousel-image-1.jpg")}} alt="Los Angeles"
+                         style="width:100%;height:500px;">
+                    <div class="carousel-caption" style="text-align:left">
+                        <div class="col-lg-8 col-md-12 align-self-center">
+                            <h1>Digital learning with Nikhil singh </h1>
+                            <p class="lead" style="color:red;"> Stay connected with me and get all updates of marketing
+                                news,tools,framework, mostly used programming langauges and technologies . </p>
+                            <a href="/Contactus" class="btn btn-primary">start your journey</a>
+                        </div>
+                    </div>
+                </div>
+                <div class="item">
+                    <img src={{url_for('static',filename="images/crousel-image-2.jpg")}} alt="Chicago"
+                         style="width:100%;height:500px;">
+                    <div class="carousel-caption" style="text-align:left">
+                        <div class="col-lg-8 col-md-12 align-self-center">
+                            <h1>Digital learning with Nikhil singh </h1>
+                            <p class="lead" style="color:red;"> Stay connected with me and get all updates of marketing
+                                news,tools,framework, mostly used programming langauges and technologies . </p>
+                            <a href="/Contactus" class="btn btn-primary">start your journey</a>
+                        </div>
+                    </div>
+                </div>
+                <div class="item">
+                    <img src={{url_for('static',filename="images/crousel-image-3.jpg")}} alt="New york"
+                         style="width:100%;height:500px;">
+                    <div class="carousel-caption" style="text-align:left">
+                        <h1>Digital learning with Nikhil singh </h1>
+                        <p class="lead" style="color:red;"> Stay connected with me and get all updates of marketing
+                            news,tools,framework, mostly used programming langauges and technologies . </p>
+                        <a href="/Contactus" class="btn btn-primary">start your journey</a>
+                    </div>
+                </div>
+            </div>
+
+            <!-- Left and right controls -->
+            <a class="left carousel-control" href="#myCarousel" data-slide="prev">
+                <span class="glyphicon glyphicon-chevron-left"></span>
+                <span class="sr-only">Previous</span>
+            </a>
+            <a class="right carousel-control" href="#myCarousel" data-slide="next">
+                <span class="glyphicon glyphicon-chevron-right"></span>
+                <span class="sr-only">Next</span>
+            </a>
+        </div>
+    </div>
+</div>
+
+{% endblock %}
+{% block content %}
+<section class="section lb">
+    <div class="container">
+        <div class="row" style="float:left;">
+            <div class="col-lg-8 col-md-12 col-sm-12 col-xs-12">
+                <div class="page-wrapper">
+                    <div class="blog-custom-build">
+                        <div class="blog-box wow fadeIn">
+                            <div class="post-media">
+                                <div class="hovereffect">
+                                    <span></span>
+                                </div>
+                            </div>
+                            <div class="blog-meta big-meta text-center">
+                                <div class="post-sharing" style="height:auto">
+                                    <ul class="list-block">
+                                        <li><a href="https://www.facebook.com/singhn494"
+                                               class="fb-button btn btn-primary"><i class="fa fa-facebook"></i>
+                                            <span class="down-mobile">catch me on Facebook</span></a></li>
+                                        <li><a href="https://github.com/ns0511" class="tw-button btn btn-primary"><i class="fa fa-linkedin"></i>
+                                            <span class="down-mobile">linkedin</span></a></li>
+                                        <li><a href="https://www.instagram.com/singhn494/"
+                                               class="in-button btn btn-primary"><i class="fa fa-instagram"></i>
+                                            <span class="down-mobile">instagram</span></a></li>
+                                        <li><a href="https://github.com/ns0511"
+                                               class="gt-button btn btn-primary"><i class="fa fa-github"></i>
+                                            <span class="down-mobile">Github</span></a></li>
+
+                                    </ul>
+                                    <div style="background-color:#66c2ff;  height=300px;">
+                                        <img src="{{ url_for('static', filename='images/img2.jpg')}}"
+                                             style="border-radius:100px;background-color:black;"
+                                             class="img-circle " width="200" height="200">
+                                        <h4>Nikhil singh</h4></div>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+        <div class="col-lg-4 col-md-12 col-sm-12 col-xs-12">
+            <div class="container" style="background-color:black; width:800px;height:600px">
+                <div class="widget">
+                    <h2 class="widget-title" style="color:white;text-align:left;"><u>About me</u>                    <h5>22/12/2019</h5></h2>
+                    <div style="color:white;">
+                        <p style="color:white">
+                            Hi, my name is Nikhil Singh. I'm a Full-stack developer in python, but also linked with photography
+                            and Gaming  when I have time. I was born in Jharkhand, India, but I currently staying at
+                            Bhopal in M.p, India. and pursuing my B.tech from IES college Bhopal</p>
+                        <p style="color:white">
+                            The codes that powers this blog was all written by myself. It seemed like a pretty
+                            interesting project to write a blog engine from python , and now that I have my own blog
+                            that I like, I might as well use it!
+
+                            The topics that I will be blogging about are going to be mostly related to one of two
+                            things: programming or technology. Or maybe not, at this point I don't really know.</p>
+
+                           <p style="color:white"> Thanks for stopping by, I hope you find something useful or interesting. If you do, be sure
+                               to suscribe my blog and if any query kindly contact......</p>
+                        </p>
+                    </div>
+
+                </div>
+            </div>
+        </div>
+    </div>
+    </div>
+
+
+    </div>
+    </div>
+</section>
+
+
+{% endblock %}
+
+{%block footer%}
+
+
+<footer class="footer" style="height:200px">
+    <h2 class="widget-title" align="center">About us:</h2>
+
+    <div>
+        <h4 style="color:white;">Developer : NIKHIL SINGH</h4>
+        <h4 style="color:white;">Organiser : Gist-technosolutions</h4>
+    </div>
+    <h5 style="color:white;">mob : 7974971299</h5>
+    <h5 style="color:white;">email : nikhil8271768371@gmail.com</h5>
+    <h6 style="color:white;">15 dec 2019</h6>
+
+
+</footer>
+</div>
+
+{% endblock  %}

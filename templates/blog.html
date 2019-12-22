@@ -1,0 +1,195 @@
+{% extends "Layout.html" %}
+
+{% block title %}Home page {% endblock %}
+{% block navbar %}
+<body>
+
+    <div id="wrapper">
+        <header class="market-header header">
+            <div class="container-fluid">
+                <nav class="navbar navbar-toggleable-md navbar-inverse fixed-top bg-inverse" >
+                    <button class="navbar-toggler navbar-toggler-right" type="button" data-toggle="collapse" data-target="#navbarCollapse" aria-controls="navbarCollapse" aria-expanded="false" aria-label="Toggle navigation">
+                        <span class="navbar-toggler-icon"></span>
+                    </button>
+                    <a class="navbar-brand" href="/Home" ><img src={{url_for('static',filename="images/version/newlogo.png")}} style="height:70px;" alt=""></a>
+                    <div class="collapse navbar-collapse" id="navbarCollapse">
+                        <ul class="navbar-nav mr-auto">
+                            <li class="nav-item">
+                                <a class="nav-link" href="/Home">Home</a>
+                            </li>
+                            <li class="nav-item">
+                                <a class="nav-link" href="/Blog">Blog</a>
+                            </li>
+                            <li class="nav-item">
+                                <a class="nav-link" href="/Contactus">Contact Us</a>
+                            </li>
+
+                            </li>
+                            <li class="nav-item">
+                                <a class="nav-link" href="/Login">Login</a>
+                            </li>
+                        </ul>
+                        <form class="form-inline" method="post" action="/search">
+                            <input class="form-control mr-sm-2" type="text" placeholder="How may I help?" id="search" name="search">
+                            <button class="btn btn-outline-success my-2 my-sm-0" type="submit" id = "search_btn" >Search</button>
+                        </form>
+                    </div>
+                </nav>
+            </div><!-- end container-fluid -->
+
+        </header><!-- end market-header -->
+
+
+{% endblock %}
+
+ {% block header %}
+
+
+        <section id="cta" class="section" style="background-image:url('../static/images/home2.jpg');background-size:cover;height:500px;" >
+            <div class="container">
+                <div class="row">
+                    <div class="col-lg-6 col-md-12 align-self-center">
+                        <h2>Welcome To <u>NSBlOG</u></h2>
+                        <p class="lead"> Stay connected with me and get all updates of marketing news,tools,framework, mostly used programming langauges and technologies . </p>
+                        <a href="/Contactus" class="btn btn-primary">start your journey</a>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+{% endblock  %}
+{% block content %}
+<section class="section lb">
+  <div class="container">
+      <div class="row">
+          <div class="col-lg-8 col-md-12 col-sm-12 col-xs-12">
+             <div class="page-wrapper">
+                  <div class="blog-custom-build">
+                      <div class="blog-box wow fadeIn">
+                           <div class="post-media">
+                                 <a href="marketing-single.html" title="">
+                                     <div class="hovereffect">
+                                         <span></span>
+                                     </div>
+                                      <!-- end hover -->
+                                 </a>
+                           </div>
+                            <!-- end media -->
+
+                            <div class="blog-meta big-meta text-center">
+                               {% for p in posts %}
+                                  <div class="post-sharing">
+                                      <ul class="list-inline">
+                                                <li><a href="https://www.facebook.com/" class="fb-button btn btn-primary"><i class="fa fa-facebook"></i> <span class="down-mobile">Share on Facebook</span></a></li>
+                                                <li><a href="https://twitter.com/" class="tw-button btn btn-primary"><i class="fa fa-twitter"></i> <span class="down-mobile">Tweet on Twitter</span></a></li>
+                                                
+                                      </ul>
+                                  </div><!-- end post-sharing -->
+                                        <h4><a href="{{url_for('readmore')}}?text={{p.id}}" title="">{{p.title}}</a></h4>
+                                        <p> {{p.description[:100]}}</p>
+                                        <h6 style="color:red;"><a href="{{url_for('readmore')}}?text={{p.id}}" title="" >read more..</a></h6>
+                                        <small>{{p.date}}</small>
+                                        <small>{{p.author}}</small>
+
+                                    {% endfor %}
+
+                            </div><!-- end meta -->
+
+                      </div><!-- end blog-box -->
+
+                                     <hr class="invis">
+                                        <div class="blog-box wow fadeIn">
+                                            <div class="post-media">
+                                                    <div class="hovereffect">
+                                                        <span></span>
+                                                    </div>
+                                                    <!-- end hover -->
+                                                </a>
+                                            </div>
+                                        </div>
+                        <hr class="invis">
+
+                        <div class="row">
+                            <div class="col-md-12">
+                                <nav aria-label="Page navigation">
+                                    <ul class="pagination justify-content-center"  >
+                                        <li><a href="{{ prev }}"><i class="fa fa-long-arrow-left" aria-hidden="true"></i> previous</a></li>
+                                         <li><a href="{{ next }}">   Next <i class="fa fa-long-arrow-right" aria-hidden="true"></i></a></li>
+
+                                    </ul>
+                                </nav>
+                            </div><!-- end col -->
+                        </div><!-- end row -->
+                  </div>
+             </div>
+          </div>
+                 <div class="col-lg-4 col-md-12 col-sm-12 col-xs-12">
+                     <div class="sidebar">
+                        <div class="widget">
+                                <h2 class="widget-title">Categories</h2>
+                            {% for cate in category %}
+                                <div class="link-widget">
+                                    <ul>
+                                        <li><a href="/Blog?cat_id={{cate.id}}">{{cate.name}} <span>({{(cate.relation)|length}})</span></a></li>
+                                    </ul>
+                                </div>
+                            {% endfor %}
+                        </div><!-- end widget -->
+                         <div class="widget">
+                                <h2 class="widget-title">Recent posts</h2>
+                                    {% for p in post %}
+                                <div class="link-widget">
+                                    <ul>
+                                        <li><a href="#">{{p.title}} </a></li>
+                                    </ul>
+                                </div>
+                            {% endfor %}
+                     </div><!-- end sidebar -->
+                 </div>
+
+      </div>
+      </div>
+           <div class="container">
+                        <form action="/Blog" class="form" method="get">
+                            <div class="form">
+                                 <label for="name">Name:</label>
+                                 <input type="text" class="form-control" id="name"  placeholder="Enter your Name" name="name" required>
+                            </div>
+                            <div class="form">
+                                 <label for="comment">comment:</label>
+                                <textarea  class="form-control" id="comment"  rows=5 cols=3  placeholder="Enter your valuable comment" name="comment" required></textarea>
+                            </div>
+
+                            <div class="form" >
+                                 <input type="submit" class="form-control"  style="color:blue ;background-color:green;"  value="submit">
+                            </div>
+
+                        </form>
+           </div>
+  </div>
+</section>
+
+{% endblock %}
+
+{%block footer%}
+
+
+
+<footer class="footer"  style="height:400px">
+    <h2 class="widget-title" align="center">About us:</h2>
+    <div style="float:left">
+    <img src="{{ url_for('static', filename='images/img2.jpg')}}" style="border-radius:20px;" class="img-circle " width="200" height="200">
+    </div>
+    <div>
+    <h4 style="color:white;">Developer : NIKHIL SINGH</h4>
+    <h4 style="color:white;">Organiser : Gist-technosolutions</h4>
+    </div>
+    <h5 style="color:white;">mob : 7974971299</h5>
+    <h5 style="color:white;">email : nikhil8271768371@gmail.com</h5>
+    <h6 style="color:white;">15 dec 2019</h6>
+
+
+</footer>
+
+    </div>
+{% endblock  %}

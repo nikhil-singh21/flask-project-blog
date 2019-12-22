@@ -1,0 +1,94 @@
+
+{% extends "Layout.html" %}
+{% block title %}contact us {% endblock %}
+{% block header %}
+<section id="cta" class="section"
+         style="background-image:url('../static/images/img4.jpg');background-repeat:no-repeat;background-size:cover">
+    <div class="container">
+        <div class="row">
+            <div class="col-lg-8 col-md-12 align-self-center">
+            </div>
+            <div class="col-lg-4 col-md-12">
+                <div class="newsletter-widget text-center align-self-center">
+                    <h3>Subscribe Today!</h3>
+                    <p>Subscribe to our weekly Newsletter and receive updates via email.</p>
+                    <form action='/suscribe' class="form-inline" method="post">
+                        <input type="text" name="email" placeholder="Add your email here.." required
+                               class="form-control"/>
+                        <input  type="submit" value="Subscribe" class="btn btn-default btn-block"/>
+                        {{msg|safe}}
+                    </form>
+                </div><!-- end newsletter -->
+            </div>
+        </div>
+    </div>
+</section>
+{% endblock %}
+{%block content %}
+<div class="post-sharing">
+    <ul class="list-inline">
+        <li><a href="https://www.facebook.com/singhn494" class="fb-button btn btn-primary"><i
+                class="fa fa-facebook"></i> <span class="down-mobile">facebook</span></a></li>
+        <li><a href="#" class="tw-button btn btn-primary"><i class="fa fa-twitter"></i> <span class="down-mobile">twitter</span></a>
+        </li>
+        <li><a href="https://www.instagram.com/singhn494/" class="in-button btn btn-primary"><i class="fa fa-instagram"></i> <span class="down-mobile">insta</span></a>
+        </li>
+        <li><a href="https://github.com/ns0511" class="ln-button btn btn-primary"><i class="fa fa-linkedin"></i> <span
+                class="down-mobile"></span></a></li>>
+    </ul>
+
+
+</div>
+<div class="col-lg-8 col-md-12 align-self-center">
+    <form action="/Contactus" method="post">
+        <div class="form-group">
+            <b><label for="name" style="color:black;">Name:</label></b>
+            <input type="text" class="form-control" id="name" name="name" required>
+        </div>
+        <div class="form-group">
+            <b><label for="contactno" style="color:black;">contact no:</label></b>
+            <input type="text" class="form-control" id="contactno" name="contactno" required>
+        </div>
+        <div class="form-group">
+            <b><label for="email" style="color:black;">Email address:</label></b>
+            <input type="email" class="form-control" id="email" name="email" required>
+
+
+        </div>
+        <div class="form-group input-group-lg">
+            <b><label for="query" style="color:black;">Query</label></b><br/>
+            <input type="text" class="form-control" placeholder="query" id="query" name="query">
+        </div>
+        <button type="submit" class="btn btn-default" value="send">Send</button> {{ms|safe}}
+
+    </form>
+</div>
+
+
+{% endblock %}
+{%block footer%}
+
+
+  <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.4.1/jquery.min.js"></script>
+  <script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.4.1/js/bootstrap.min.js"></script>
+
+
+<footer class="footer"  style="height:400px">
+    <h2 class="widget-title" align="center">About us:</h2>
+    <div style="float:left">
+    <img src="{{ url_for('static', filename='images/img2.jpg')}}" style="border-radius:20px;" class="img-circle " width="200" height="200">
+    </div>
+    <div>
+    <h4 style="color:white;">Developer : NIKHIL SINGH</h4>
+    <h4 style="color:white;">Organiser : Gist-technosolutions</h4>
+    </div>
+    <h5 style="color:white;">mob : 7974971299</h5>
+    <h5 style="color:white;">email : nikhil8271768371@gmail.com</h5>
+    <h6 style="color:white;">15 dec 2019</h6>
+
+
+</footer>
+
+
+{% endblock %}
+

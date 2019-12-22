@@ -1,0 +1,51 @@
+{% extends 'Admintemplate.html' %}
+
+{% block content %}
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css">
+<div class="container-fluid">
+  <div class="row content">
+    <div class="col-sm-3 sidenav">
+
+      <ul class="nav nav-pills nav-stacked">
+          <h4><u>DASHBOARD</u></h4>
+          <li class="active"><a href="#section1">Home</a></li>
+          <li><a href="/category">manage category</a></li>
+          <li><a href="/post">manage post</a></li>
+          <li><a href="/logout">Logout</a></li>
+      </ul><br>
+      <div class="input-group">
+            <input type="text" class="form-control" placeholder="Search Blog..">
+            <span class="input-group-btn">
+            <button class="btn btn-default" type="button">
+            <span class="glyphicon glyphicon-search"></span>
+            </button>
+            </span>
+      </div>
+    </div>
+
+    <div class="col-sm-9">
+        <h4><b><center>categories menu</center></b> </h4>
+        <div class="container" style="top-margin:50px">
+          <table class="table">
+              <tr>
+                  <th>categories name</th>
+                  <th>Edit</th>
+                  <th>Delete</th>
+              </tr>
+              {% for i in cat %}
+               <tr>
+                   <td>{{i.name}}</td>
+                   <td><a href="#"> <i class="fa fa-edit" style="font-size:20px"></i> </a></td>
+                   <td><a href="#" ><i class="fa fa-trash" style="font-size:20px"></i> </a></td>
+
+               </tr>
+               {% endfor %}
+          </table>
+          <a href="/add-cat" class="btn btn-info" role="button">addnew category</a>
+        </div>
+    </div>
+  </div>
+</div>
+{% endblock %}
+ </div>
