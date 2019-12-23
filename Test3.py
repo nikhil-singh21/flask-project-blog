@@ -116,7 +116,7 @@ from models import *
 app.config['MAIL_SERVER'] = 'smtp.gmail.com'
 app.config['MAIL_PORT'] = 465
 app.config['MAIL_USERNAME'] = 'nikcompany8@gmail.com'
-app.config['MAIL_PASSWORD'] = '*********'
+app.config['MAIL_PASSWORD'] = '**********'
 app.config['MAIL_USE_TLS'] = False
 app.config['MAIL_USE_SSL'] = True
 mail = Mail(app)
@@ -222,7 +222,10 @@ def addpost():
         elif request.method == 'POST':
             try:
                 category = Category.query.filter_by(name=request.form['category']).first()
-                post = Post(title=request.form['title'], author=request.form['author'], description=request.form['desc'],
+                desc =bytes(request.form['desc'],'utf-8')
+                print ('description : .......... : ',desc)
+
+                post = Post(title=request.form['title'], author=request.form['author'], description=desc,
                             date=request.form['date'])
                 db.session.add(post)
                 post.blogger.append(category)
@@ -230,10 +233,11 @@ def addpost():
 
                 category = db.session.query(Category.name).all()
                 suscriber = db.session.query(Suscribe).all()
+                mail = Mail(app)
                 with mail.connect() as con:
                     for user in suscriber:
-                        message = "hello %s NS blog has posted something new you may intrested" % user['email']
-                        msgs = Message(recipients=[user['email']], body=message, subject='hello',
+                        message = "hello %s NS blog has posted something new you may intrested" % user.email
+                        msgs = Message(recipients=[user.email], body=message, subject='New Post By Nikhil',
                                        sender='nikcompany8@gmail.com')
                         con.send(msgs)
                 return render_template('addpost.html', msg='<script>window.alert("post created")</script>', cat=category)
